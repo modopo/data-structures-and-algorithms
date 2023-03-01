@@ -199,10 +199,10 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 ------------------------------------------------------------------------------------------------ */
 
 const evenOddNumericValues = (arr) => {
-  return arr.filter(elem => {
+ return arr.filter(elem => {
     return typeof elem === 'number';
   }).map(num => {
-    num % 2 === 0 ? 'even' : 'odd';
+    return num % 2 === 0 ? 'even' : 'odd';
   })
 };
 
