@@ -197,92 +197,93 @@ const detectTicTacToeWin = (board) => {
     }
 
 
-  return win;
-};
+    return win;
+  };
+}
 
-/* ------------------------------------------------------------------------------------------------
-TESTS
+  /* ------------------------------------------------------------------------------------------------
+  TESTS
+  
+  All the code below will verify that your functions are working to solve the challenges.
+  
+  DO NOT CHANGE any of the below code.
+  
+  Run your tests from the console: jest challenge-14.test.js
+  
+  ------------------------------------------------------------------------------------------------ */
 
-All the code below will verify that your functions are working to solve the challenges.
-
-DO NOT CHANGE any of the below code.
-
-Run your tests from the console: jest challenge-14.test.js
-
------------------------------------------------------------------------------------------------- */
-
-describe('Testing challenge 1', () => {
-  test('It should return a list of names', () => {
-    const names = ['Mr. Brown', ' Ms. Red', 'Dr. Blue', 'Mrs.', '', 'Ms. Black', 'dr. Green', 'Mrs. Orange', 'Purple', 'Mr.  Pink'];
-    expect(screenForNames(names)).toStrictEqual(['Mr. Brown', 'Dr. Blue', 'Ms. Black', 'Mrs. Orange']);
-  });
-});
-
-describe('Testing challenge 2', () => {
-  test('It should convert each word to title case', () => {
-    const words = ['apple', 'banana', 'MacGyver'];
-    expect(toTitleCase(words)).toStrictEqual(['Apple', 'Banana', 'MacGyver']);
-
-    expect(toTitleCase([])).toStrictEqual([]);
-  });
-});
-
-describe('Testing challenge 3', () => {
-  test('It should return only characters that are bigger than Luke', () => {
-    expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
-    expect(biggerThanLuke([])).toStrictEqual('');
-  });
-});
-
-describe('Testing challenge 4', () => {
-  test('It should sort items by a price', () => {
-
-    expect(sortBy('price', [
-      { name: 'Sweatshirt', price: 45 },
-      { name: 'Bookmark', price: 2.50 },
-      { name: 'Tote bag', price: 15 }
-    ])).toStrictEqual([
-      { name: 'Bookmark', price: 2.50 },
-      { name: 'Tote bag', price: 15 },
-      { name: 'Sweatshirt', price: 45 },
-    ]);
-
+  describe('Testing challenge 1', () => {
+    test('It should return a list of names', () => {
+      const names = ['Mr. Brown', ' Ms. Red', 'Dr. Blue', 'Mrs.', '', 'Ms. Black', 'dr. Green', 'Mrs. Orange', 'Purple', 'Mr.  Pink'];
+      expect(screenForNames(names)).toStrictEqual(['Mr. Brown', 'Dr. Blue', 'Ms. Black', 'Mrs. Orange']);
+    });
   });
 
-  test('It should sort items by name', () => {
+  describe('Testing challenge 2', () => {
+    test('It should convert each word to title case', () => {
+      const words = ['apple', 'banana', 'MacGyver'];
+      expect(toTitleCase(words)).toStrictEqual(['Apple', 'Banana', 'MacGyver']);
 
-    expect(sortBy('name', [
-      { name: 'Sweatshirt', price: 45 },
-      { name: 'Bookmark', price: 2.50 },
-      { name: 'Tote bag', price: 15 }
-    ])).toStrictEqual([
-      { name: 'Bookmark', price: 2.50 },
-      { name: 'Sweatshirt', price: 45 },
-      { name: 'Tote bag', price: 15 },
-    ]);
-  });
-});
-
-describe('Testing challenge 5', () => {
-  test('It should check if url is https', () => {
-
-    expect(isSecure('http://www.insecure.com')).toBe(false);
-    expect(isSecure('https://secure.com')).toBe(true);
-    expect(isSecure('https:/missingslash.org')).toBe(false);
-  });
-});
-
-describe('Testing challenge 6', () => {
-  test('It should return true if there are three in a row', () => {
-    expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
-  //   expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);
+      expect(toTitleCase([])).toStrictEqual([]);
+    });
   });
 
-  // test('It should return false if there are not three in a row', () => {
-  //   expect(detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(false);
-  // });
+  describe('Testing challenge 3', () => {
+    test('It should return only characters that are bigger than Luke', () => {
+      expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
+      expect(biggerThanLuke([])).toStrictEqual('');
+    });
+  });
 
-  // test('It should not treat empty 3 in row as winner', () => {
-  //   expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
-  // });
-});
+  describe('Testing challenge 4', () => {
+    test('It should sort items by a price', () => {
+
+      expect(sortBy('price', [
+        { name: 'Sweatshirt', price: 45 },
+        { name: 'Bookmark', price: 2.50 },
+        { name: 'Tote bag', price: 15 }
+      ])).toStrictEqual([
+        { name: 'Bookmark', price: 2.50 },
+        { name: 'Tote bag', price: 15 },
+        { name: 'Sweatshirt', price: 45 },
+      ]);
+
+    });
+
+    test('It should sort items by name', () => {
+
+      expect(sortBy('name', [
+        { name: 'Sweatshirt', price: 45 },
+        { name: 'Bookmark', price: 2.50 },
+        { name: 'Tote bag', price: 15 }
+      ])).toStrictEqual([
+        { name: 'Bookmark', price: 2.50 },
+        { name: 'Sweatshirt', price: 45 },
+        { name: 'Tote bag', price: 15 },
+      ]);
+    });
+  });
+
+  describe('Testing challenge 5', () => {
+    test('It should check if url is https', () => {
+
+      expect(isSecure('http://www.insecure.com')).toBe(false);
+      expect(isSecure('https://secure.com')).toBe(true);
+      expect(isSecure('https:/missingslash.org')).toBe(false);
+    });
+  });
+
+  describe('Testing challenge 6', () => {
+    test('It should return true if there are three in a row', () => {
+      expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
+      expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);
+    });
+
+    test('It should return false if there are not three in a row', () => {
+      expect(detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(false);
+    });
+
+    test('It should not treat empty 3 in row as winner', () => {
+      expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
+    });
+  })
