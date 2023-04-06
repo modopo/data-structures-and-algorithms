@@ -24,3 +24,4 @@ Table of Contents
 
 ![Reversing an Array](./javascript/array-reverse/README.md)
 ![Inserting and Shifting an Array](./javascript/array-insert-shift/README.md)
+![Binary Search Through a Sorted Array](./javascript/array-binary-search/README.md)
