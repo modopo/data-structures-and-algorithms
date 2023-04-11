@@ -42,5 +42,17 @@ describe('Linked List', () => {
   test('Logging all the value with ->', () => {
     expect(list.traverse()).toEqual('{ 4 } -> { 3 } -> { 2 } -> NULL')
   })
+
+  test('Inserting before a value', () => {
+    list.insertBefore(3, 1000);
+
+    expect(list.traverse()).toEqual('{ 4 } -> { 1000 } -> { 3 } -> { 2 } -> NULL')
+  })
+
+  test('Insering after a value', () => {
+    list.insertAfter(1000, 50);
+
+    expect(list.traverse()).toEqual('{ 4 } -> { 1000 } -> { 50 } -> { 3 } -> { 2 } -> NULL')
+  })
   
 });
