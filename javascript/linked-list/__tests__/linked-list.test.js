@@ -41,8 +41,11 @@ describe('Linked List', () => {
 
   test('Logging all the value with ->', () => {
     expect(list.traverse()).toEqual('{ 4 } -> { 3 } -> { 2 } -> NULL')
-  })
+  })  
+});
 
+describe("Tests for inserting", () => {
+    
   test('Inserting before a value', () => {
     list.insertBefore(3, 1000);
 
@@ -54,5 +57,32 @@ describe('Linked List', () => {
 
     expect(list.traverse()).toEqual('{ 4 } -> { 1000 } -> { 50 } -> { 3 } -> { 2 } -> NULL')
   })
-  
-});
+})
+
+describe("Tests for kth from the end", () => {
+  test('Return the value kth from the end', () => {
+    let result = list.kthFromEnd(2);
+
+    expect(result).toEqual(50);
+  });
+
+  test('Return the value kth from the end, where k is greater than the length of the list', () => {
+
+    expect(() => list.kthFromEnd(10)).toThrow(TypeError);
+  });
+
+  test('Return the value kth from the end, where kth is the length of the list', () => {
+    let result = list.kthFromEnd(4);
+
+    expect(result).toEqual(4);
+  });
+
+  test('Return the value kth from the end, when list is length of 1', () => {
+    let anotherList = new LinkedList;
+
+    anotherList.append(1);
+    let result = anotherList.kthFromEnd(0);
+
+    expect(result).toEqual(1);
+  })
+})

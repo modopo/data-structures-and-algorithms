@@ -5,6 +5,7 @@ Implement a linked list
 
 ## Whiteboard Process
 ![image](./whiteboard.png)
+![image](./kthFromEnd.png)
 
 ## Approach & Efficiency
 
