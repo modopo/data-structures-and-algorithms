@@ -26,7 +26,8 @@ class LinkedList {
     let current = this.head;
     let nextNode;
 
-    while(current.next.value !== value) {
+
+    while (current.next.value !== value) {
       current = current.next;
     }
 
@@ -41,7 +42,7 @@ class LinkedList {
     let current = this.head;
     let nextNode;
 
-    while(current.value !== value) {
+    while (current.value !== value) {
       current = current.next;
     }
 
@@ -49,6 +50,21 @@ class LinkedList {
     current.next = newNode;
     newNode.next = nextNode;
 
+  }
+
+  kthFromEnd(k) {
+    let p1 = this.head;
+    let p2 = this.head;
+
+    for (let idx = 0; idx < k; idx++) {
+      p2 = p2.next;
+    }
+
+    while (p2.next !== null) {
+      p1 = p1.next;
+      p2 = p2.next;
+    }
+    return p1.value;
   }
 
   includes(value) {
