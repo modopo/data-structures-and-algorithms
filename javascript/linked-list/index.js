@@ -26,14 +26,17 @@ class LinkedList {
     let current = this.head;
     let nextNode;
 
-
-    while (current.next.value !== value) {
-      current = current.next;
+    if (current.value === value) {
+      nextNode = current;
+      newNode.next = nextNode;
+    } else {
+      while (current.next.value !== value) {
+        current = current.next;
+      }
+      nextNode = current.next
+      current.next = newNode;
+      newNode.next = nextNode;
     }
-
-    nextNode = current.next
-    current.next = newNode;
-    newNode.next = nextNode;
 
   }
 
@@ -42,13 +45,16 @@ class LinkedList {
     let current = this.head;
     let nextNode;
 
+    if (current.value === value) {
+      nextNode = current.next;
+      current.next = newNode;
+      newNode.next = nextNode;
+    }
+
     while (current.value !== value) {
       current = current.next;
     }
 
-    nextNode = current.next;
-    current.next = newNode;
-    newNode.next = nextNode;
 
   }
 
