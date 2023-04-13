@@ -1,7 +1,7 @@
 'use strict';
 
 // Require our linked list implementation
-const LinkedList = require('../index');
+const { LinkedList, ziplists } = require('../index');
 
 const list = new LinkedList;
 
@@ -41,11 +41,11 @@ describe('Linked List', () => {
 
   test('Logging all the value with ->', () => {
     expect(list.traverse()).toEqual('{ 4 } -> { 3 } -> { 2 } -> NULL')
-  })  
+  })
 });
 
 describe("Tests for inserting", () => {
-    
+
   test('Inserting before a value', () => {
     list.insertBefore(3, 1000);
 
@@ -84,5 +84,48 @@ describe("Tests for kth from the end", () => {
     let result = anotherList.kthFromEnd(0);
 
     expect(result).toEqual(1);
+  });
+});
+
+describe("Tests for zipping two linked list", () => {
+  let list1 = new LinkedList;
+  let list2 = new LinkedList;
+  list1.append(1);
+  list1.append(3);
+  list1.append(5);
+  list2.append(2);
+  list2.append(4);
+  list2.append(6);
+
+  test('Return alternating linked list from two list', () => {
+    let result = ziplists(list1, list2);
+
+    expect(result.traverse()).toEqual('{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 5 } -> { 6 } -> NULL')
   })
-})
+
+  test('Return alternating linked list with list1 is shorter than list2', () => {
+    list1.head = null;
+    list2.head = null;
+    list1.append(1);
+    list1.append(3);
+    list2.append(2);
+    list2.append(4);
+    list2.append(5);
+    let result = ziplists(list1, list2)
+
+    expect(result.traverse()).toEqual('{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 5 } -> NULL')
+  });
+
+  test('Return alternating linked list with list1 longer than list2', () => {
+    list1.head = null;
+    list2.head = null;
+    list1.append(1);
+    list1.append(3);
+    list1.append(5);
+    list2.append(2);
+    list2.append(4);
+    let result = ziplists(list1, list2)
+
+    expect(result.traverse()).toEqual('{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 5 } -> NULL')
+  })
+});

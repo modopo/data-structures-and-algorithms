@@ -3,7 +3,6 @@
 class LinkedList {
   constructor() {
     this.head = null;
-    this.current = this.head;
   }
 
   append(value) {
@@ -89,11 +88,11 @@ class LinkedList {
   traverse() {
     let current = this.head;
     let result = '';
-    while (current) {
+    while (current !== null) {
       result += `{ ${current.value} } -> `;
       current = current.next;
     }
-    result += 'NULL';
+    result += 'NULL'
     return result;
   }
 }
@@ -105,4 +104,34 @@ class Node {
   }
 }
 
-module.exports = LinkedList;
+function ziplists(list1, list2) {
+  let currentNode1 = list1.head;
+  let currentNode2 = list2.head;
+  let prevNode = null;
+
+  while (currentNode1 !== null && currentNode2 !== null) {
+    let nextNode1 = currentNode1.next;
+    let nextNode2 = currentNode2.next;
+
+    // Link the nodes from list2 into list1
+    currentNode1.next = currentNode2;
+    currentNode2.next = nextNode1;
+
+    // Update the current nodes and the previous node
+    prevNode = currentNode2;
+    currentNode1 = nextNode1;
+    currentNode2 = nextNode2;
+  }
+
+  // Append remaining nodes from list2
+  if (currentNode2 !== null) {
+    prevNode.next = currentNode2;
+  }
+
+  return list1;
+}
+
+module.exports = {
+  LinkedList,
+  ziplists
+}
