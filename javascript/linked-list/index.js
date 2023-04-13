@@ -49,12 +49,14 @@ class LinkedList {
       nextNode = current.next;
       current.next = newNode;
       newNode.next = nextNode;
+    } else {
+      while (current.value !== value) {
+        current = current.next;
+      }
+      nextNode = current.next
+      current.next = newNode;
+      newNode.next = nextNode;
     }
-
-    while (current.value !== value) {
-      current = current.next;
-    }
-
 
   }
 
