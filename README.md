@@ -26,3 +26,4 @@ Table of Contents
 ![Inserting and Shifting an Array](./javascript/array-insert-shift/README.md)
 ![Binary Search Through a Sorted Array](./javascript/array-binary-search/README.md)
 ![Linked List](./javascript/linked-list/README.md)
+![Stacks and Queues](./javascript/stack-queue/README.md)
