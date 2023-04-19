@@ -20,7 +20,7 @@ class AnimalShelter {
 
   enqueue(animal) {
     const newNode = new Node(animal);
-    
+
     if (this.front === null) {
       this.front = newNode;
       this.rear = newNode;
@@ -31,23 +31,37 @@ class AnimalShelter {
   }
 
   dequeue(pref) {
-    let current = this.front;
-
-    if (pref !== 'cat' || pref !== 'dog') {
+    if (!this.front) {
       return null;
     }
 
-    if (this.front.value.name === pref) {
-      current.next = this.front;
-      return current.value;
-    }
+    let removed = null;
 
-    while (current.next !== null) {
-      if (current.next.value.name === pref) {
-        current.next = current.next.next;
-        return this.front.
+    if (this.front.value.species === pref) {
+      removed = this.front;
+      this.front = this.front.next;
+      if (this.front === null) {
+        this.rear === null;
       }
+      return removed.value.species;
     }
 
-  }  
+    let current = this.front;
+
+    while (current.next) {
+      if (current.next.value.species === pref) {
+        removed = current.next;
+        current.next = current.next.next;
+        return removed.value.species;
+      }
+      current = current.next;
+    }
+
+    return removed;
+  }
+}
+
+module.exports = {
+  Animal,
+  AnimalShelter
 }
