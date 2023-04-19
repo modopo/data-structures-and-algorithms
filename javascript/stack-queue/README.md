@@ -30,12 +30,22 @@ This implementation with 2 stacks will mostly be affected by the dequeue stack, 
 
 Dequeueing a pseudo-queue is O(n) for both time and space, because both stack will grow alongside with the input (utilizing stack as storage). Dequeue invovles popping through the entire enqueue stack.
 
+### Animal Shelter
+
+This re-implemntation of a queue will remove the first instances of the species and still keep the order by traversing down the queue and re-arranging the references.
+
+Pushing a node to a stack is O(1) time and space complexity because it only access one node and it's property.
+
+Enqueueing a node to a queue is also O(1) for time and space complexity because it only access one node and it's property as well
+
 ## Solution ##
 ![stack.js](stack.js)
 ![queue.js](queue.js)
 ![pseudo-queue.js](pseudo-queue.js)
+![animal-shelter.js](animal-shelter.js)
 
 ## Testing ##
 ![stack.test.js](./stack.test.js)
 ![queue.test.js](./queue.test.js)
-![pseudo-queue.js](./pseudo-queue.test.js)
+![pseudo-queue.test.js](./pseudo-queue.test.js)
+![animal-shelter.test.js](./animal-shelter.test.js)
