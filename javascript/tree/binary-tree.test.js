@@ -1,0 +1,46 @@
+'use strict';
+
+const { BinarySearchTree } = require("./binary-search-tree");
+const util = require('util');
+
+describe('Testing binary tree alonside BST', () => {
+
+  const bst = new BinarySearchTree();
+
+  test('Make a tree from null', () => {
+    bst.add(10);
+
+    expect(bst.preOrder()).toEqual([10]);
+  })
+
+  test('Make a BST', () => {
+    bst.add(6);
+    bst.add(3);
+    bst.add(14);
+    bst.add(11);
+    bst.add(27);
+    bst.add(5);
+    bst.add(9);
+
+    expect(bst.preOrder()).toEqual([10, 6, 3, 5, 9, 14, 11, 27]);
+  });
+
+  test('preOrder correctly', () => {
+    expect(bst.preOrder()).toEqual([10, 6, 3, 5, 9, 14, 11, 27])
+  })
+
+  test('inOrder correctly', () => {
+    console.log(bst.inOrder());
+    expect(bst.inOrder()).toEqual([3, 5, 6, 9, 10, 11, 14, 27])
+  });
+
+  test('postOrder correctly', () => {
+    console.log(bst.postOrder());
+    expect(bst.postOrder()).toEqual([5, 3, 9, 6, 11, 27, 14, 10])
+  });
+
+  test('Contains properly', () => {
+    expect(bst.contains(5)).toEqual(true);
+    expect(bst.contains(399)).toEqual(false);
+  })
+})
