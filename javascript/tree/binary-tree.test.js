@@ -43,4 +43,9 @@ describe('Testing binary tree alonside BST', () => {
     expect(bst.contains(5)).toEqual(true);
     expect(bst.contains(399)).toEqual(false);
   })
+
+  test('Find max in tree', () => {
+    bst.add(92349);
+    expect(bst.findMax()).toEqual(92349);
+  })
 })
