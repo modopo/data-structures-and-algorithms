@@ -60,6 +60,25 @@ class BinaryTree {
 
     return result;
   }
+
+  findMax() {
+    let max = 0;
+
+    const traverse = (node) => {
+      if (node !== null) {
+        if (node.value > max) {
+          max = node.value;
+        }
+        traverse(node.left);
+        traverse(node.right);
+      }
+    }
+
+    traverse(this.root);
+
+    return max;
+
+  }
 }
 
 module.exports = {
