@@ -5,6 +5,7 @@ Implement binary tree
 
 ## Whiteboard Process
 ![image](./binary_tree.png)
+![image](./fizzBuzz.png)
 
 ## Approach & Efficiency
 
@@ -57,3 +58,4 @@ The space complexity is also O(n), since we are creating another tree with the s
 
 ## Testing ##
 ![binary-tree.test.js](./binary-tree.test.js)
+![k-ary-tree.test.js](./k-ary-tree.test.js)
