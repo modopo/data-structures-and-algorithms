@@ -77,7 +77,6 @@ class BinaryTree {
     traverse(this.root);
 
     return max;
-
   }
 }
 

@@ -1,6 +1,7 @@
 'use strict';
 
 const { BinarySearchTree } = require("./binary-search-tree");
+const breadthFirst = require('./breadth-first');
 const util = require('util');
 
 describe('Testing binary tree alonside BST', () => {
@@ -47,5 +48,9 @@ describe('Testing binary tree alonside BST', () => {
   test('Find max in tree', () => {
     bst.add(92349);
     expect(bst.findMax()).toEqual(92349);
+  })
+
+  test('Breadth first ordering output', () => {
+    expect(breadthFirst(bst)).toEqual([10, 6, 14, 3, 9, 11, 27, 5, 92349])
   })
 })
