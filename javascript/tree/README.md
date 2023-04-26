@@ -33,10 +33,27 @@ Space complexity of adding a node to a binary tree is O(1) because it requires a
 
 The time and space complexity is O(n) because each node of the tree is accessed. The value once accessed, is pushed into an array that grows in size to the number of nodes in the tree.
 
+### FizzBuzz
+
+* Recreate k-ary tree with the values of each node modified with the following ruleset:
+  * if divisible by 3, replace iwht 'Fizz'
+  * if divisible by 5, replace with 'Buzz'
+  * if divisible by 3 and 5, replace with 'FizzBuzz'
+  * if none of the above, replace with string version of value
+
+* Create K-ary tree class
+* Create insert() method in class
+* Traverse breadth first three
+* When accessing each node, apply the ruleset to the value and insert result into a new K-ary tree
+
+The time complexity is O(n) since we are traversing through all the nodes of the k-ary tree.
+The space complexity is also O(n), since we are creating another tree with the same amount of nodes in the ingested tree.
+
 ## Solution ##
 ![binary-tree.js](./binary-tree.js)
 ![binary-search-tree.js](./binary-search-tree.js)
 ![breadth-first.js](./breadth-first.js)
+![k-ary-tree.js](./k-ary-tree.js)
 
 ## Testing ##
 ![binary-tree.test.js](./binary-tree.test.js)
