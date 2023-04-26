@@ -26,9 +26,17 @@ The time complexity of adding a node to a binary tree is O(log n) in the average
 
 Space complexity of adding a node to a binary tree is O(1) because it requires a constant amount of space (just one Node object) to store the new node.
 
+### Breadth First
+
+* Return an array of values when traversing a tree breadth first
+* Each layer will be read left to right, top to bottom
+
+The time and space complexity is O(n) because each node of the tree is accessed. The value once accessed, is pushed into an array that grows in size to the number of nodes in the tree.
+
 ## Solution ##
 ![binary-tree.js](./binary-tree.js)
 ![binary-search-tree.js](./binary-search-tree.js)
+![breadth-first.js](./breadth-first.js)
 
 ## Testing ##
 ![binary-tree.test.js](./binary-tree.test.js)
