@@ -20,18 +20,18 @@ describe('Sorters', () => {
   });
 
   it('can sort movies by title', () => {
-    const movies = sortByYear(Movies);
+    const results = sortByYear(movies);
     expect(movies.map((m) => m.title)).toEqual([
-      'Beetlejuice',
-      'City of God',
-      'The Cotton Club',
-      'Crocodile Dundee',
-      'The Intouchables',
-      'Memento',
-      'Ratatouille',
+      'The Godfather',
+      'Star Wars: Episode IV - A New Hope',
+      'Goodfellas',
+      'Pulp Fiction',
+      'Forrest Gump',
       'The Shawshank Redemption',
-      'Stardust',
-      'Valkyrie',
+      'The Matrix',
+      'The Lord of the Rings: The Fellowship of the Ring',
+      'The Dark Knight',
+      'Inception',
     ]);
   });
 });
