@@ -32,7 +32,27 @@ function sortByTitle(movieArr) {
       let title1 = movieArr[i]['title'].split(' ');
       let title2 = movieArr[j]['title'].split(' ');
 
-      if (title1[0].includes)
+      if (title1[0] === 'The' || title1[0] === 'A' || title1[0] === 'An') {
+        title1.splice(0, 1)
+      }
+      if (title2[0] === 'The' || title2[0] === "A" || title2[0] === 'An') {
+        title2.splice(0, 1);
+      }
+
+      // console.log('TITLE1', title1);
+      // console.log('TITLE2', title2);
+      if (title2 < title1) {
+        const temp = movieArr[i];
+        movieArr[i] = movieArr[j];
+        movieArr[j] = temp;
+      }
     }
   }
+  return movieArr;
+}
+
+module.exports = {
+  sortByYear,
+  sortByTitle,
+  compare
 }
