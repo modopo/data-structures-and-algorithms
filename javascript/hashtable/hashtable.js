@@ -58,3 +58,5 @@ class HashTable {
     return keys;
   }
 }
+
+module.exports = HashTable;
