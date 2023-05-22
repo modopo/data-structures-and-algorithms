@@ -6,7 +6,7 @@ class Vertex {
   }
 }
 
-class Edge { 
+class Edge {
   constructor(vertex, weight) {
     this.vertex = vertex;
     this.weight = weight;
@@ -33,7 +33,7 @@ class Graph {
   }
 
   addEdge(start, end, weight = 0) {
-    if(!this.adjacencyList.has(start) || !this.adjacencyList.has(end)) {
+    if (!this.adjacencyList.has(start) || !this.adjacencyList.has(end)) {
       throw new Error("Invalid Vertices");
     }
     const edge = new Edge(end, weight);
@@ -43,6 +43,37 @@ class Graph {
 
   getNeighbors(vertex) {
     return this.adjacencyList.get(vertex);
+  }
+
+  breadthFirst(start) {
+    if (!start) {
+      return null;
+    }
+
+    const queue = [];
+    const visited = {};
+
+    queue.push(start);
+    visited[start.value] = true;
+
+    let result = [];
+
+    while (queue.length) {
+      let current = queue.shift();
+      result.push(current.value);
+
+      let neighbors = this.getNeighbors(current);
+
+      for (let neighbor of neighbors) {
+        const neighborNode = neighbor.vertex;
+        if (!visited[neighborNode.value]) {
+          visited[neighborNode.value] = true;
+          queue.push(neighborNode);
+        }
+      }
+
+      return result;
+    }
   }
 }
 
