@@ -75,6 +75,28 @@ class Graph {
       return result;
     }
   }
+
+  depthFirst(node) {
+    const visited = {};
+    const traversalOrder = [];
+
+    const dfs = (currentNode) => {
+      visited[currentNode] = true;
+      traversalOrder.push(currentNode);
+
+      if (currentNode in this.graph) {
+        const neighbors = this.graph[currentNode];
+        for (const neighbor of neighbors) {
+          if (!visited[neighbor]) {
+            dfs(neighbor);
+          }
+        }
+      }
+    };
+
+    dfs(node);
+    return traversalOrder;
+  }
 }
 
 module.exports = Graph;
